@@ -1,11 +1,10 @@
 import React from "react";
+import PhoneAppList  from './phoneList';
 
-const PhoneCatalogApp = () => {
-  return (
-    <div>
-      HI FROM PHONE CATALOG APP CONTAINER
-    </div>
-  );
-};
+class PhoneCatalogApp extends React.PureComponent {
+  render() {
+    return <PhoneAppList/>;
+  }
+}
 
 export default PhoneCatalogApp;
