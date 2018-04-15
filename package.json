@@ -1,0 +1,25 @@
+{
+  "name": "phonecatalog",
+  "version": "1.0.0",
+  "description": "Phone Catalog App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ldoc/phonecatalog.git"
+  },
+  "keywords": [
+    "phone",
+    "catalog",
+    "app"
+  ],
+  "author": "LDOC",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ldoc/phonecatalog/issues"
+  },
+  "homepage": "https://github.com/ldoc/phonecatalog#readme",
+  "devDependencies": {}
+}
