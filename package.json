@@ -4,7 +4,7 @@
   "description": "Phone Catalog App",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "api": "node src/api/server.js"
   },
   "repository": {
     "type": "git",
@@ -21,5 +21,8 @@
     "url": "https://github.com/ldoc/phonecatalog/issues"
   },
   "homepage": "https://github.com/ldoc/phonecatalog#readme",
-  "devDependencies": {}
+  "devDependencies": {},
+  "dependencies": {
+    "express": "^4.16.3"
+  }
 }
