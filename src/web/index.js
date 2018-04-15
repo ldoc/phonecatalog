@@ -1,0 +1,1 @@
+document.getElementById('app').innerHTML = "WELCOME TO PHONE´S CATALOG APP";
