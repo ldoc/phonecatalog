@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux';
+import { phones } from './phones';
 
 const phoneCatalogApp = combineReducers({
-  test: (state,action) => "Hi from test reducer"
+  phones: phones
 });
 
 export default phoneCatalogApp;
