@@ -1,20 +1,20 @@
 import { takeLatest , put , call } from 'redux-saga/effects';
-import { TEST_ACTION , testActionOk , testActionError } from '../actions/phones';
+import { GET_PHONES , getPhonesOk , getPhonesError } from '../actions/phones';
 import axios from 'axios';
 
-const getTestMsg = () => axios.get('http://localhost:3000/');
+const getApiPhones = () => axios.get('http://localhost:3000/phones');
 
-function* test() {
+function* getPhones() {
    try {
-      let msg = yield call(getTestMsg);
-      yield put(testActionOk(msg.data));
+      let phonesRes = yield call(getApiPhones);
+      yield put(getPhonesOk(phonesRes.data));
    } catch (e) {
       yield put(testActionError('Error'));
    }
 }
 
 function* phones() {
-  yield takeLatest(TEST_ACTION, test);
+  yield takeLatest(GET_PHONES, getPhones);
 }
 
 export default phones;

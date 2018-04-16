@@ -1,16 +1,20 @@
-import { TEST_ACTION_OK , TEST_ACTION_ERROR } from '../actions/phones';
+import { GET_PHONES_OK , GET_PHONES_ERROR } from '../actions/phones';
 
 // Phones reducer
 
-const initialState = {test:''};
+const initialState = {
+  list:[],
+  selected: null,
+  error: null
+}
 
 export function phones(state = initialState, action) {
 
   switch (action.type) {
-    case TEST_ACTION_OK:
-      return {...state,test:action.msg}
-    case TEST_ACTION_ERROR:
-      return {...state,test:action.msg}
+    case GET_PHONES_OK:
+      return { ...state , list:action.phones , error:null}
+    case GET_PHONES_ERROR:
+      return { ...state , list:[] , error:action.msg}
     default:
       return state
   }

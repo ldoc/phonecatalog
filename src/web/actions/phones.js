@@ -1,27 +1,27 @@
 // Action types
 
-export const TEST_ACTION = 'TEST_ACTION';
-export const TEST_ACTION_OK = 'TEST_ACTION_OK';
-export const TEST_ACTION_ERROR = 'TEST_ACTION_ERROR';
+export const GET_PHONES = 'GET_PHONES';
+export const GET_PHONES_OK = 'GET_PHONES_OK';
+export const GET_PHONES_ERROR = 'GET_PHONES_ERROR';
 
 // Action function generators
 
-export function testAction() {
+export function getPhones() {
   return {
-    type: TEST_ACTION
+    type: GET_PHONES
   }
 }
 
-export function testActionOk(msg) {
+export function getPhonesOk(phones) {
   return {
-    type: TEST_ACTION_OK,
-    msg
+    type: GET_PHONES_OK,
+    phones
   }
 }
 
-export function testActionError(msg) {
+export function getPhonesError(msg) {
   return {
-    type: TEST_ACTION_ERROR,
+    type: GET_PHONES_ERROR,
     msg
   }
 }

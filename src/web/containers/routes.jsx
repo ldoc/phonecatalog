@@ -11,18 +11,10 @@ const LoadablePhoneList = Loadable({
   }
 });
 
-const LoadablePhoneDetail = Loadable({
-  loader: () => import(
-    '../components/phoneDetail.jsx'),
-  loading() {
-    return <Loading/>
-  }
-});
-
 const Routes = () => (
   [
     <Route exact path="/" component={LoadablePhoneList} key='home'/>,
-    <Route exact path="/phone" component={LoadablePhoneDetail} key='detail'/>
+    <Route exact path="/phone/:id" component={LoadablePhoneList} key='detail'/>
   ].map((r)=>r)
 );
 
