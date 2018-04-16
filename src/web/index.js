@@ -2,7 +2,7 @@ import 'babel-polyfill';
 import React from "react"; 
 import ReactDOM from "react-dom";
 import { Provider } from 'react-redux';
-import PhoneCatalogApp from "./containers/PhoneCatalogApp";
+import PhoneCatalogApp from "./containers/phoneCatalogApp";
 import appReducers from './reducers';
 import sagaPhones from './sagas/phones.js';
 import { createStore , applyMiddleware  } from 'redux';

@@ -1,9 +1,16 @@
 import React from "react";
-import PhoneAppList  from './phoneList';
+import { HashRouter , Switch } from 'react-router-dom';
+import Routes from './routes';
 
 class PhoneCatalogApp extends React.PureComponent {
   render() {
-    return <PhoneAppList/>;
+    return( 
+      <HashRouter outer>
+        <Switch>
+          {Routes()}
+        </Switch>
+      </HashRouter>
+    )
   }
 }
 
