@@ -16,4 +16,4 @@ class PhoneCatalogApp extends React.PureComponent {
   }
 }
 
-export default PhoneCatalogApp;s
+export default PhoneCatalogApp;
