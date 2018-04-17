@@ -9,7 +9,7 @@ function* getPhones() {
       let phonesRes = yield call(getApiPhones);
       yield put(getPhonesOk(phonesRes.data));
    } catch (e) {
-      yield put(testActionError('Error'));
+      yield put(getPhonesError('Server failed trying to access to phone list'));
    }
 }
 

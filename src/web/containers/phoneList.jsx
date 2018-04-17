@@ -3,12 +3,15 @@ import { connect } from 'react-redux';
 import { getPhones } from '../actions/phones';
 import PhoneItem from '../components/phoneItem';
 import PhoneDetail from '../components/phoneDetail';
+import ErrorMsg from '../components/errorMsg';
 
 class PhoneList extends React.Component {
 
-  componentWillMount (nextProps, nextState) {
+  componentWillMount (nextProps, nextState) { 
     this.props.getPhones();
   }
+
+  renderErrorMsg = (e) => <ErrorMsg {...e}/>;
 
   renderPhoneList = (pL) => pL.map((p) => <PhoneItem {...p}/>);
   
@@ -16,16 +19,18 @@ class PhoneList extends React.Component {
     
   render() {
     const selected = this.props.match.params.id;
-    const phoneList = this.props.phoneList;
+    const {phoneList , error} = this.props;
 
-    if(!selected) return this.renderPhoneList(phoneList);
+    if (error) return this.renderErrorMsg({msgError:error});
+    else if(!selected) return this.renderPhoneList(phoneList);
     else return this.renderPhoneDetail(phoneList.find( (p) => p.id === parseInt(selected) ));
   }
   
 }
 
 const mapStateToProps = state => ({
-  phoneList: state.phones.list
+  phoneList: state.phones.list,
+  error: state.phones.error
 })
 
 const mapDispatchToProps = {
