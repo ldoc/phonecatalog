@@ -7,15 +7,31 @@ import ErrorMsg from '../components/errorMsg';
 
 class PhoneList extends React.Component {
 
-  componentWillMount (nextProps, nextState) { 
+  componentWillMount () { 
     this.props.getPhones();
   }
 
   renderErrorMsg = (e) => <ErrorMsg {...e}/>;
 
-  renderPhoneList = (pL) => pL.map((p) => <PhoneItem {...p}/>);
+  renderPhoneList = (pL) => {
+    return(
+      [
+        <div className='section' key='section'>Phone´s List</div>,
+        <div className='phoneList' key='list'>
+          {pL.map((p) => <PhoneItem {...p} key={p.id}/>)}
+        </div>
+      ]
+    );
+  }
   
-  renderPhoneDetail = (p) => <PhoneDetail {...p}/>;
+  renderPhoneDetail = (p) => {
+    return(
+      [
+        <div className='section' key='title'>{p.name}</div>,
+        <PhoneDetail {...p} key='detail'/>
+      ]
+    );
+  }
     
   render() {
     const selected = this.props.match.params.id;
@@ -23,7 +39,8 @@ class PhoneList extends React.Component {
 
     if (error) return this.renderErrorMsg({msgError:error});
     else if(!selected) return this.renderPhoneList(phoneList);
-    else return this.renderPhoneDetail(phoneList.find( (p) => p.id === parseInt(selected) ));
+    else if(selected && phoneList && phoneList.length > 0) return this.renderPhoneDetail(phoneList.find( (p) => p.id === parseInt(selected) ));
+    else return null;
   }
   
 }

@@ -7,6 +7,7 @@ import appReducers from './reducers';
 import sagaPhones from './sagas/phones.js';
 import { createStore , applyMiddleware  } from 'redux';
 import createSagaMiddleware from 'redux-saga';
+import './css/app.css';
 
 // Create the saga middleware
 const sagaMiddleware = createSagaMiddleware();

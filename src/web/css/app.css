@@ -1,0 +1,124 @@
+body{
+  margin: 0px;
+  font-family: 'arial';
+}
+
+.header{
+  background-color: black;
+  height:50px;
+  font-weight: bold;
+  color: yellow;
+  font-size: 30px;
+  padding-top:15px;
+  padding-left:15px;
+  border-bottom:solid 3px yellow;
+}
+
+.header .title{
+  float:left;
+}
+
+.header .goback{
+  float:right;
+  color: white;
+  margin-right:5px;
+  cursor: pointer;
+}
+
+.section{
+  font-weight: bold;
+  color:black;
+  font-size: 20px;
+  margin:10px;
+}
+
+.phoneList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  grid-gap: 10px;
+  list-style-type: none;
+  justify-content: space-evenly;
+}
+  
+.phoneList .item {
+  font-size: 18px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.phoneList .item .phone{
+  display:inline-block;
+  padding: 10px;
+  border: dashed 1px gray;
+  width: 170px;
+  border-radius: 15px 50px 30px 5px;
+  text-decoration: none;
+}
+
+.phoneDetail{
+  display: grid;
+ 
+  grid-template-areas:  ". img . ."
+                        ". img des ."
+                        ". img col ."
+                        ". img pri .";
+  grid-template-columns: 20px 300px auto 20px;
+  grid-template-rows: 40px auto auto auto;
+  grid-gap: 10px;
+  justify-content: space-evenly;
+  border-bottom: dashed 1px gray;
+  border-top: dashed 1px gray;
+}
+
+.phoneDetail > image {
+  grid-area: img;
+  text-align: center;
+}
+
+.phoneDetail > desc {
+  grid-area: des;
+  text-align: justify;
+}
+
+.phoneDetail > desc > div {
+  max-width: 500px;
+  margin-right:20px;
+}
+
+.phoneDetail > color {
+  grid-area: col;
+  text-align: justify;
+}
+
+.phoneDetail > price {
+  grid-area: pri;
+  text-align: justify;
+}
+
+@media (max-width: 580px) {
+  .header{
+    background-color: black;
+    height:40px;
+    font-weight: bold;
+    color: yellow;
+    font-size: 25px;
+    padding-top:10px;
+    padding-left:10px;
+  }
+
+  .header #literal {
+    display:none;
+  }
+
+  .phoneDetail{
+    display: grid;
+    width: 100%;
+    grid-template-areas:  ". img ."
+                          ". des ."
+                          ". col ."
+                          ". pri .";
+    grid-template-columns: 10px 1fr 10px;
+    grid-template-rows: auto auto auto auto;
+  }
+}
+

@@ -1,14 +1,39 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 class Header extends React.PureComponent {
-  render() {
-    // temporal styles (TODO: remove when create css)
-    const tempStyleHeader = {backgroundColor:'yellow'};
-    const tempStyleItems = {display:'inline' , border:'solid 1px black' , margin:'10px'};
 
+  constructor(props){
+    super(props);
+    this.state = {
+      back:false
+    }
+  }
+
+  changeLocation = () =>{
+    const hash = window.location.hash;
+    this.setState({back: (hash != '#/')})
+  }
+
+  componentDidMount(){
+    window.addEventListener('popstate', this.changeLocation);
+  }
+
+  goBack = () => {
+    window.location.hash = '#';
+  }
+
+  render() {
     return (
-      <div style={tempStyleHeader}>
-        <div style={tempStyleItems}>Logo</div>
+      <div className="header">
+        <div className="title">Phones Catalog</div>
+        {
+          this.state.back?
+          <div className="goback" onClick={this.goBack}><span>&lt;-</span> <span id="literal">Go back</span> </div>
+          :
+          null
+        }
+        
       </div>
     );
   }
